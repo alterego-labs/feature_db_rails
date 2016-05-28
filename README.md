@@ -1,15 +1,30 @@
 # FeatureDbRails
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/feature_db_rails`. To experiment with that code, run `bin/console` for an interactive prompt.
+When you are working on the big projects with the teammates, could be the situation when you develop
+separate big features that might include DB changes, of course. Sometimes you need to switch to the
+another feature to help you team or whatever. But on local machine you made some critical changes into
+your development DB and without the logic which is in the another branch the application does not
+work correctly.
 
-TODO: Delete this and the text above, and describe your gem
+This gem provides the very simple ability to create DB-per-feature. The main goals are:
+
+1. Easy create and revert feature DBs
+2. Do not lost data from the original development DB, so you can develop your feature having the whole
+data.
+
+This is very dirty implementation of the concept, which I copied from the developing application.
+
+## Requirements
+
+- git
+- mysql (unfortunately only mysql is supported now)
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'feature_db_rails'
+gem 'feature_db_rails', '0.1.0'
 ```
 
 And then execute:
@@ -22,17 +37,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Usage is very simple.
 
-## Development
+For first you need to make change in the `database.yml` file:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```yaml
+development:
+  <<: *default
+  database: your_development_db<%= FeatureDbRails.db_suffix %>
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+And then you can do a magic:
+
+- When you want to create DB for your feature run `bundle exec rake feature_db_rails:generate`
+- If you want to revert DB run `bundle exec rake feature_db_rails:revert`
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/feature_db_rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/alterego-labs/feature_db_rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
