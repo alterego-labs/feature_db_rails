@@ -1,5 +1,6 @@
 require 'feature_db_rails/version'
 require 'feature_db_rails/config'
+require 'feature_db_rails/railtie' if defined?(Rails)
 require 'yaml'
 
 module FeatureDbRails
