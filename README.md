@@ -24,7 +24,7 @@ This is very dirty implementation of the concept, which I copied from the develo
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'feature_db_rails', '0.1.0'
+gem 'feature_db_rails', '0.2.0'
 ```
 
 And then execute:
