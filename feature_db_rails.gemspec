@@ -9,10 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sergey Gernyak"]
   spec.email         = ["sergeg1990@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  spec.license       = "MIT"
+  spec.summary       = %q{Provides the very simple ability to create DB-per-feature}
+  spec.description   = spec.summary
+  spec.homepage      = 'https://github.com/alterego-labs/feature_db_rails'
+  spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
