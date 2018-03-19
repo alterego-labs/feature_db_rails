@@ -35,6 +35,16 @@ Or install it yourself as:
 
     $ gem install feature_db_rails
 
+Provide a bit of the configuration, for example, inside `config/initializers/feature_db_rails.rb`:
+
+```ruby
+FeatureDbRails.config do |config|
+  config.base_db_name = 'my_dev_db_name'
+  config.db_username  = 'root'
+  config.db_password  = ''
+end
+```
+
 ## Usage
 
 Usage is very simple.
@@ -44,7 +54,7 @@ For first you need to make change in the `database.yml` file:
 ```yaml
 development:
   <<: *default
-  database: your_development_db<%= FeatureDbRails.db_suffix %>
+  database: <%= FeatureDbRails.target_db_name %>
 ```
 
 And then you can do a magic:
