@@ -35,14 +35,10 @@ Or install it yourself as:
 
     $ gem install feature_db_rails
 
-Provide a bit of the configuration, for example, inside `config/initializers/feature_db_rails.rb`:
+Provide a bit of the configuration inside `config/environment.rb`:
 
 ```ruby
-FeatureDbRails.config do |config|
-  config.base_db_name = 'my_dev_db_name'
-  config.db_username  = 'root'
-  config.db_password  = ''
-end
+FeatureDbRails.init(database_original: 'my_dev_db_name')
 ```
 
 ## Usage
