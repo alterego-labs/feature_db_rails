@@ -43,8 +43,8 @@ module FeatureDbRails
     end
   end
 
-  def self.target_db_name
-    check_for_config
+  def self.target_db_name(database_original)
+    init(database_original: database_original)
     featured_db_enabled? ? featured_db_name : config.base_db_name
   end
 
