@@ -50,7 +50,7 @@ For first you need to make change in the `database.yml` file:
 ```yaml
 development:
   <<: *default
-  database: <%= FeatureDbRails.target_db_name %>
+  database: <%= FeatureDbRails.target_db_name('my_dev_db_name') %>
 ```
 
 And then you can do a magic:
